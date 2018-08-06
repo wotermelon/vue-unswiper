@@ -1,34 +1,25 @@
 {
-  "name": "vue-painting",
-  "version": "1.0.4",
-  "description": "A image tailor and painting component for Vue.",
-  "author": "wotermelon <zwotermelon@gmail.com>",
-  "main": "./dist/vue-painting.js",
+  "name": "whatsapp",
+  "version": "1.0.0",
+  "description": "A Vue.js project",
+  "author": "张铭泽 <zhangmingze@xunlei.com>",
+  "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
-    "lint": "eslint --ext .js,.vue src",
-    "build:demo": "node build/build.js",
+    "build": "node build/build.js",
     "build:cmpt": "node build/build-component.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wotermelon/vue-painting.git"
-  },
-  "keywords": [
-    "vue",
-    "canvas",
-    "konva",
-    "painting",
-    "vue-painting"
-  ],
-  "peerDependencies": {
+  "dependencies": {
+    "axios": "^0.18.0",
+    "fastclick": "^1.0.6",
+    "less": "^3.8.0",
+    "less-loader": "^4.1.0",
     "vue": "^2.5.2"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
-    "babel-eslint": "^8.2.1",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
     "babel-loader": "^7.1.1",
     "babel-plugin-syntax-jsx": "^6.18.0",
@@ -39,21 +30,10 @@
     "chalk": "^2.0.1",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.0",
-    "eslint": "^4.15.0",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-friendly-formatter": "^3.0.0",
-    "eslint-loader": "^1.7.1",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-node": "^5.2.0",
-    "eslint-plugin-promise": "^3.4.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "eslint-plugin-vue": "^4.0.0",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^1.1.4",
     "friendly-errors-webpack-plugin": "^1.6.1",
     "html-webpack-plugin": "^2.30.1",
-    "less": "^3.0.1",
-    "less-loader": "^4.1.0",
     "node-notifier": "^5.1.2",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "ora": "^1.2.0",
@@ -66,7 +46,6 @@
     "shelljs": "^0.7.6",
     "uglifyjs-webpack-plugin": "^1.1.1",
     "url-loader": "^0.5.8",
-    "vue": "^2.5.2",
     "vue-loader": "^13.3.0",
     "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.5.2",
@@ -82,10 +61,6 @@
   "browserslist": [
     "> 1%",
     "last 2 versions",
-    "not ie <= 8",
-    "Android >= 4.4"
-  ],
-  "dependencies": {
-    "axios": "^0.18.0"
-  }
+    "not ie <= 8"
+  ]
 }

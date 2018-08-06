@@ -26,6 +26,7 @@ export default {
     return {
       clientWidth: '',
       wrapperId: '',
+      current: 0,
       listIndex: 0,
       unswiperList: []
     }
@@ -39,9 +40,11 @@ export default {
     })
     this.unswiper.on('slideEnd', () => {
       this.$emit('slideend')
+      // this.
     })
     this.unswiper.on('slideNextEnd', () => {
       this.$emit('slidenextend')
+      // console.log('slideNextEnd', this.listIndex)
 
       if (this.listIndex === 0) {
         this.unswiperList.push(this.data[2])
@@ -51,9 +54,13 @@ export default {
 
         this.unswiperList.push(this.data[this.listIndex + 2])
         this.unswiperList.shift()
+        // this.current  = 1
       } else if (this.listIndex === this.data.length - 2) {
         this.unswiper.slideTo(1, false)
         this.unswiperList.shift()
+        // this.current = 1
+      } else {
+        alert(this.listIndex + '|' + this.data.length)
       }
 
       this.listIndex = this.listIndex + 1
@@ -61,6 +68,7 @@ export default {
 
     this.unswiper.on('slidePrevEnd', () => {
       this.$emit('slideprevend')
+      // console.log('slidePrevEnd')
 
       if (this.listIndex === this.data.length - 1) {
         this.unswiper.slideTo(1, false)
@@ -71,8 +79,11 @@ export default {
 
         this.unswiperList.unshift(this.data[this.listIndex - 2])
         this.unswiperList.pop()
+        // this.listIndex = this.listIndex - 1
+        this.current  = 1
       } else if (this.listIndex === 1) {
         this.unswiperList.pop()
+        // this.current = 0
       }
 
       this.listIndex = this.listIndex - 1
@@ -84,29 +95,31 @@ export default {
       e.preventDefault()
     },
     init (index) {
+      console.log(index)
       this.listIndex = index
-      let innerIndex = 1
 
       if (index === 0) {
         this.unswiperList = [
           this.data[index],
           this.data[index + 1]
         ]
-        innerIndex = 0
+        this.current = 0
       } else if (index === this.data.length - 1) {
         this.unswiperList = [
           this.data[index - 1],
           this.data[index]
         ]
+        this.current = 1
       } else {
         this.unswiperList = [
           this.data[index - 1],
           this.data[index],
           this.data[index + 1]
         ]
+        this.current = 1
       }
       this.$nextTick(() => {
-        this.unswiper.slideTo(innerIndex, false)
+        this.unswiper.slideTo(this.current, false)
       })
     }
   }
@@ -114,6 +127,10 @@ export default {
 </script>
 
 <style lang="less" scoped>
+  * {
+    box-sizing: border-box;
+  }
+
   .unswiper-container {
     width: 100%;
     height: 100%;

@@ -1,3 +1,3 @@
-import Unswiper from './unswiper/index.vue'
+import VueUnswiper from './unswiper'
 
-export default Unswiper
+export default VueUnswiper

@@ -23,9 +23,9 @@ const webpackConfig = merge(baseWebpackConfig, {
   devtool: config.build.productionSourceMap ? config.build.devtool : false,
   output: {
     path: path.resolve(__dirname, '../dist/'),
-    filename: 'vue-painting.js',
+    filename: 'vue-unswiper.min.js',
     libraryExport: 'default',
-    library: 'VuePainting',
+    library: 'VueUnswiper',
     libraryTarget: 'umd',
     publicPath: '/'
   },
